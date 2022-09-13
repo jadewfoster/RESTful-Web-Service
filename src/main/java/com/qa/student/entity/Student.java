@@ -1,7 +1,5 @@
 package com.qa.student.entity;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -30,7 +28,7 @@ private String firstName;
 private String lastName;
 
 @Column(name = "Date of Birth")
-private LocalDate dateOfBirth;
+private String dateOfBirth;
 
 @Column(name = "Total Marks")
 private int totalMarks;
