@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.student.entity.Student;
+import com.qa.student.exception.StudentAlreadyExistsException;
 import com.qa.student.service.StudentService;
 
 @RestController
@@ -21,7 +22,7 @@ public class StudentController {
 	ResponseEntity<?> responseEntity;
 
 	@PostMapping("/student")
-	public ResponseEntity<?> saveStudent(@RequestBody Student student) {
+	public ResponseEntity<?> saveStudent(@RequestBody Student student) throws StudentAlreadyExistsException {
 		Student createdStudent = this.stuService.saveStudent(student);
 		responseEntity = new ResponseEntity<>(createdStudent, HttpStatus.CREATED);
 		return responseEntity;
